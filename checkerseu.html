@@ -9,14 +9,31 @@
 <title>Checkers EU</title>
 <style>
 :root {
---bg-color: #1e272e;
---board-dark: #57606f;
---board-light: #f1f2f6;
---piece-player: #f1f2f6;
---piece-ai: #ff4757;
---highlight-move: rgba(46, 213, 115, 0.6);
---highlight-select: #eccc68;
---error-color: #ff4757;
+--bg-color: #070412; /* Dypere, mørkere indigoblå/svart */
+--board-dark: #1c1030; /* Mørk lilla base for brettet */
+--board-light: #4a69e0; /* Dempet elektrisk blå (mindre skarp enn før) */
+--piece-player: #00c8ff; /* Lysere, men mindre mettet cyan/turkis */
+--piece-ai: #cc00ff; /* Elektrisk lilla/magenta (mer dempet enn ren magenta) */
+--highlight-move: rgba(60, 180, 60, 0.5); /* Dempet, syrlig grønn glow */
+--highlight-select: #6a9dff; /* Mykere, mer sofistikert blå utvalg */
+--error-color: #cc4477; /* Dypere, mindre aggressiv rød/rosa */
+}
+body::before {
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+background-image: url('bg.png');
+background-size: cover;
+background-position: center top;
+background-repeat: no-repeat;
+opacity: 1.0;
+pointer-events: none;
+-webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 * {
 box-sizing: border-box;
@@ -28,12 +45,12 @@ body {
 font-family: 'Segoe UI', system-ui, sans-serif;
 background-color: var(--bg-color);
 color: white;
-margin: 0;
+
 display: flex;
 flex-direction: column;
-align-items: center;
+align-items: flex-end;
 justify-content: center;
-height: 100dvh;
+height: 99dvh;
 overflow: hidden;
 overscroll-behavior: none;
 user-select: none;
@@ -44,9 +61,9 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 width: 100%;
-max-width: 600px;
+max-width: min(95vw, calc(100dvh - 100px));
 padding: 10px 20px;
-background: rgba(0,0,0,0.3);
+background: rgba(0,0,0,0.8);
 border-radius: 8px;
 margin-bottom: 15px;
 }
