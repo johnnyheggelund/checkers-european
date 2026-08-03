@@ -1,4 +1,4 @@
-### Checkers Board Game with European rules.
+### Play a free web-based version of the Checkers board game featuring European rules
 
 ### [Start Game ➜](https://johnnyheggelund.github.io/checkers-european/checkerseu.html)
 
